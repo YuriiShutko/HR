@@ -1,9 +1,10 @@
 import pytest
 import subprocess
+import crypt
 
 from hr import user_mgmt
 
-password = '$6$HXdlMJqcV8LZ1DIF$LCXVxmaI/ySqNtLI6b64LszjM0V5AfD.ABaUcf4j9aJWse2t3Jr2AoB1zZxUfCr8SOG0XiMODVj2ajcQbZ4H4/'
+password = crypt.crypt('password', crypt.mksalt(crypt.METHOD_SHA512))
 userinfo = {
     'name': 'kevin',
     'groups': ['wheel', 'dev'],
