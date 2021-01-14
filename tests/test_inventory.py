@@ -1,5 +1,4 @@
 import pytest
-import subprocess
 import tempfile
 
 from hr import inventory
