@@ -2,6 +2,8 @@ import subprocess
 import sys
 import pwd
 
+from helpers import get_user_names
+
 def create_user(userinfo):
     print(f'Creating user with username: "{userinfo["name"]}" and groups: "{userinfo["groups"]}"')
     try:
@@ -27,7 +29,7 @@ def delete_user(userinfo):
         sys.exit(1)
 
 def sync_users(users, existing_usernames=None):
-    existing_usernames = existing_usernames or get_users_list()
+    existing_usernames = existing_usernames or get_user_names()
     usernames = [user['name'] for user in users]
     for user in users:
         if user['name'] not in existing_usernames:
@@ -40,6 +42,3 @@ def sync_users(users, existing_usernames=None):
 
 def _get_user_groups_str(userinfo):
     return ','.join(userinfo['groups']) or ''
-
-def _get_users_list():
-    return [user.pw_name for user in pwd.getpwall() if user.pw_uid >= 1000 and 'home' in user.pw_dir]
