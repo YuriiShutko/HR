@@ -1,5 +1,5 @@
 import json
-from helpers import get_user_names
+from hr.helpers import get_user_names
 import spwd
 import grp
 

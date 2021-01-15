@@ -2,7 +2,7 @@ import subprocess
 import sys
 import pwd
 
-from helpers import get_user_names
+from hr.helpers import get_user_names
 
 def create_user(userinfo):
     print(f'Creating user with username: "{userinfo["name"]}" and groups: "{userinfo["groups"]}"')
