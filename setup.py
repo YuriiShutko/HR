@@ -1,22 +1,19 @@
-import setuptools
+from setuptools import setup, find_packages
 
-with open("README.rst", "r", encoding="utf-8") as fh:
-        long_description = fh.read()
+with open('README.rst', encoding='UTF-8') as f:
+    readme = f.read()
 
-setuptools.setup(
-    name="HR",
-    version="0.1.0",
-    author="Yurii",
-    author_email="yurii@example.com",
-    description="Python package to manage users on a server based on an “inventory” JSON file",
-    long_description=long_description,
-    packages=setuptools.find_packages('src'),
+setup(
+    name='hr',
+    version='0.1.0',
+    description='Python package to manage users on a server based on an "inventory" JSON file',
+    long_description=readme,
+    author='Yurii',
+    author_email='yurii@example.com',
+    packages=find_packages('src'),
     package_dir={'': 'src'},
-    python_requires='>=3.6',
     install_requires=[],
     entry_points={
-        'console_scripts': [
-            'hr=hr.cli:main',
-        ],
-    }
+        'console_scripts': 'hr=hr.cli:main',
+    },
 )
