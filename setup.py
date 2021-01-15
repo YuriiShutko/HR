@@ -13,4 +13,10 @@ setuptools.setup(
     packages=setuptools.find_packages('src'),
     package_dir={'': 'src'},
     python_requires='>=3.6',
+    install_requires=[],
+    entry_points={
+        'console_scripts': [
+            'hr=hr.cli:main',
+        ],
+    }
 )
